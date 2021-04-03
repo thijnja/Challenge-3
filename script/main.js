@@ -28,15 +28,14 @@ map.on('load', function () {
   });
 });
 
-
 // wacht tot de map en styles geladen zijn
 map.on('load', function () {
 
   // laad een extern bestand
-  map.loadImage('../images/raket.png', function (error, image) {
+  map.loadImage('https://github.com/thijnja/Challenge-3/blob/e596ada3231828755bf9f24642f33ea786e9473e/images/raket.png', function (error, image) {
 
       // voeg image toe
-      map.addImage('cat', image);
+      map.addImage('raket', image);
 
       // defineer een punt in het geheugen
       map.addSource('point', {
@@ -59,7 +58,7 @@ map.on('load', function () {
         type: 'symbol',
         source: 'point',
         layout: {
-          'icon-image': 'cat',
+          'icon-image': 'raket',
           'icon-size': 0.25
         }
       });
