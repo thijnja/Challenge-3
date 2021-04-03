@@ -1,0 +1,57 @@
+/* Hier komt de main stijling (voor mobiel) */
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Light.ttf'); 
+} 
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial;
+    color: black;  
+    background-size: cover;  
+}
+
+main {
+    margin: auto;
+    width: 92.5%;
+}
+
+#achtergrond {
+   background-color: #FFD991;  
+}
+
+/* Stijling voor de header */
+
+figure{
+    font-size: 1.2em;
+    border-bottom: 0;
+    text-align: center;
+}
+
+#logo {
+    display: block;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Stijling voor de articles */
+
+article {
+    display: flex;
+  background: white;
+  text-align: center;
+  margin-bottom: 6rem;
+  padding: 1rem;
+  border-radius: 0.5em;
+  box-shadow: 2px 5px #888888;  
+  
+}
+
+#map {
+    height: 400px;
+}
