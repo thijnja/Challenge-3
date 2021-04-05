@@ -42,16 +42,78 @@ figure{
 /* Stijling voor de articles */
 
 article {
-    display: flex;
+  display: flex;
   background: white;
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
   padding: 1rem;
   border-radius: 0.5em;
   box-shadow: 2px 5px #888888;  
   
 }
 
+#informatie {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+p {
+  font-size: 21px;
+}
+
+#map {
+    height: 300px;
+}
+
+
+
+
+/* ------ ALLE MEDIA QUERIES -------- */
+/* Telefoon scherm */
+@media only screen and (max-width: 700px) {  
+
+}
+
+/* iPad scherm */
+@media only screen and (min-width: 700px) and (max-width: 1000px) {  
+
+article {
+    margin: 40px;
+}
+
+p {
+  font-size: 24px;
+}
+
+
+
+
+}
+
+/* Media querie - Laptop */
+@media only screen and (min-width: 1000px) and (max-width: 1700px){
+
+main {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-column-gap: 5%;
+}
+
 #map {
     height: 400px;
+}
+
+}
+
+/* Media querie - Desktop */
+@media only screen and (min-width: 1700px) {
+/* Maximale breedte voor de main */
+main {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-column-gap: 5%;
+  max-width: 1550px;
+}
+
 }

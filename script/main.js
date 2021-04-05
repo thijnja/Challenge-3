@@ -32,7 +32,7 @@ map.on('load', function () {
 map.on('load', function () {
 
   // laad een extern bestand
-  map.loadImage('https://github.com/thijnja/Challenge-3/blob/e596ada3231828755bf9f24642f33ea786e9473e/images/raket.png', function (error, image) {
+  map.loadImage('https://raw.githubusercontent.com/thijnja/Challenge-3/e596ada3231828755bf9f24642f33ea786e9473e/images/raket.png', function (error, image) {
 
       // voeg image toe
       map.addImage('raket', image);
@@ -59,7 +59,7 @@ map.on('load', function () {
         source: 'point',
         layout: {
           'icon-image': 'raket',
-          'icon-size': 0.25
+          'icon-size': 0.19
         }
       });
     }
