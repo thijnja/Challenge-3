@@ -24,7 +24,7 @@ map.on('load', function () {
 	geocoder.on('result', function (ev) {
     console.log(ev.result.center);
 	  document.getDocumentById.inner.html = ev.result.center[0] +' - '+ ev.result.center[1];
-	getAPIdata(ev.result.center[0], ev.result.center[1]);
+	 getAPIdata(ev.result.center[0], ev.result.center[1]);
   });
 });
 
@@ -65,3 +65,60 @@ map.on('load', function () {
     }
   );
 });
+
+
+// -------  MUZIEK API --------  //
+function getAPIdata() {
+
+  // construct request
+  var url = "https://api.musixmatch.com/ws/1.1/";
+  var apiKey = "b878392d8486d494f51ed751768bf0b2";
+  var artiestZoek = "artist.search?q_artist="
+  var artiest = document.getElementById('invoer');
+  var zoek = document.getElementById('zoek');
+  // construct request
+  var requestArtist = url + artiestZoek + artiest + "?" + "apikey=" + apiKey;
+  fetch(requestArtist)
+
+  //var requestSearch = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=b878392d8486d494f51ed751768bf0b2';
+  //var requestTrack = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=b878392d8486d494f51ed751768bf0b2';
+
+  // get current weather
+ //fetch(requestSearch)  
+  
+  // parse response to JSON format
+  .then(function(response) {
+    return response.json();
+  })
+  
+  // do something with response
+  .then(function(response) {
+    // show full JSON object
+    console.log(response);
+  
+    //var weatherBox = document.getElementById('weather');
+
+//var uitkomstNummer = document.getElementById('uitkomst');
+
+    //weatherBox.innerHTML = (response.main.temp - 273.15).toFixed(1) + ' &#730;C <br>' + response.weather[0].description; 
+  });
+}
+
+getAPIdata();
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
