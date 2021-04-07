@@ -66,7 +66,26 @@ p {
     height: 300px;
 }
 
+input {
+  width: 49%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 2em;
+  border-width: 1px;
+  display: inline-flex;
+}
 
+button {
+  border-radius: 2em;
+  color: white;
+  background-color: green;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  box-shadow: 0;
+ border-width: 0;
+}
 
 
 /* ------ ALLE MEDIA QUERIES -------- */

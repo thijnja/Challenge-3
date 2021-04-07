@@ -72,12 +72,16 @@ map.on('load', function () {
 document.getElementById("zoek").onclick = function getAPIdata() {
 
   // construct request
-  var url = "https://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/images/";
-  var stadn = document.getElementById('invoer1');
-  var stada = document.getElementById('invoer2');
+  var url = "https://api.teleport.org/api/cities/?search=";
+
+  //var id = "5391959"; 
+  //var id = document.getElementById('invoer1').value;
+
+  var stadn = document.getElementById('invoer1').value;
+  var stada = document.getElementById('invoer2').value;
 
   //var request = url + stad;
-  var request = url;// + "=" + stadn + "%20" + stada;
+  var request = url + stadn + "%20" + stada;// + "=" + stadn + "%20" + stada;
   fetch(request) 
   
   // parse response to JSON format
@@ -88,11 +92,14 @@ document.getElementById("zoek").onclick = function getAPIdata() {
   // do something with response
   .then(function(response) {
     // show full JSON object
-    //console.log(response.photos.attribution, stadn.value + " " + stada.value);
-    var uitkomst = document.getElementById('uitkomst');
-    uitkomst.innerHTML =  response.photos[0].photographer + stadn.value + " " + stada.value;
+    //console.log(response._embedded["city:search-results"][0].matching_alternate_names[1].name);
+    //var uitkomst = document.getElementById('uitkomst');
+    //uitkomst.innerHTML =  response.population + " " + "mensen wonen in" + " " + response.name;
+    //uitkomst.innerHTML =  response._embedded["city:search-results"].matching_alternate_names;
+    uitkomst.innerHTML = "Ook wel" + " " + response._embedded["city:search-results"][0].matching_alternate_names[1].name + " " + "genoemd." ;
   });
 }
+
 
 //getAPIdata();
 
