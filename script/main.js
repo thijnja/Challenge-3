@@ -1,3 +1,4 @@
+
 // Set api token
 mapboxgl.accessToken = 'pk.eyJ1IjoidGhpam5qYSIsImEiOiJja21sdG9nZTcwOWJvMnBtemtvcms2ZjFoIn0.be4ivbEs_5rye2gH8cC5mg';
 
@@ -67,8 +68,53 @@ map.on('load', function () {
 });
 
 
+// -------  FOTO API --------  //
+document.getElementById("zoek").onclick = function getAPIdata() {
+
+  // construct request
+  var url = "https://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/images/";
+  var stadn = document.getElementById('invoer1');
+  var stada = document.getElementById('invoer2');
+
+  //var request = url + stad;
+  var request = url;// + "=" + stadn + "%20" + stada;
+  fetch(request) 
+  
+  // parse response to JSON format
+  .then(function(response) {
+    return response.json();
+  })
+  
+  // do something with response
+  .then(function(response) {
+    // show full JSON object
+    //console.log(response.photos.attribution, stadn.value + " " + stada.value);
+    var uitkomst = document.getElementById('uitkomst');
+    uitkomst.innerHTML =  response.photos[0].photographer + stadn.value + " " + stada.value;
+  });
+}
+
+//getAPIdata();
+
+/*
+//document.getElementById("zoek").onclick = myFunction();
+
+function myFunction() {
+  var x = document.getElementById("frm1");
+  var text = "";
+  var i;
+  for (i = 0; i < x.length ;i++) {
+    text += x.elements[i].value + "<br>";
+  }
+  document.getElementById("uitkomst").innerHTML = text;
+}
+
+
+
+
+/*
 // -------  MUZIEK API --------  //
-function getAPIdata() {
+document.getElementById("zoek").onclick = function getAPIdata() {
 
   // construct request
   var url = "https://api.musixmatch.com/ws/1.1/";
@@ -108,7 +154,7 @@ getAPIdata();
 
 
  
-
+*/
 
 
 
