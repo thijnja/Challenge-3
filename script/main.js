@@ -5,11 +5,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGhpam5qYSIsImEiOiJja21sdG9nZTcwOWJvMnBtemtvc
 // Initialate map
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  center: [4.322840, 52.067101],
-  zoom: 11
+  style: 'mapbox://styles/thijnja/ckn8qtyyv0h3l17kkis37l9it',
+  center: [-73.9866, 40.7306],
+  zoom: 7
 });
 
+ 
 
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
@@ -47,7 +48,7 @@ map.on('load', function () {
             type: 'Feature',
             geometry: {
               type: 'Point',
-              coordinates: [4.32284, 52.067101]
+              coordinates: [-73.9866, 40.7306]
             }
           }]
         }
