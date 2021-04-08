@@ -87,6 +87,13 @@ button {
  border-width: 0;
 }
 
+img {
+  width: 100%;
+}
+
+article #plaatje {
+  margin-top: 20px;
+}
 
 /* ------ ALLE MEDIA QUERIES -------- */
 /* Telefoon scherm */

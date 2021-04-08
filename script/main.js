@@ -93,53 +93,31 @@ document.getElementById("zoek").onclick = function getAPIdata() {
   .then(function(response) {
     // show full JSON object
     //console.log(response._embedded["city:search-results"][0].matching_alternate_names[1].name);
-    //var uitkomst = document.getElementById('uitkomst');
+    //console.log(response._embedded["city:search-results"][0].matching_alternate_names[1].name);
+
+    var uitkomst = document.getElementById('uitkomst');
     //uitkomst.innerHTML =  response.population + " " + "mensen wonen in" + " " + response.name;
     //uitkomst.innerHTML =  response._embedded["city:search-results"].matching_alternate_names;
     uitkomst.innerHTML = "Ook wel" + " " + response._embedded["city:search-results"][0].matching_alternate_names[1].name + " " + "genoemd." ;
   });
 }
 
-
-//getAPIdata();
-
-/*
-//document.getElementById("zoek").onclick = myFunction();
-
-function myFunction() {
-  var x = document.getElementById("frm1");
-  var text = "";
-  var i;
-  for (i = 0; i < x.length ;i++) {
-    text += x.elements[i].value + "<br>";
-  }
-  document.getElementById("uitkomst").innerHTML = text;
-}
-
-
-
-
-/*
-// -------  MUZIEK API --------  //
-document.getElementById("zoek").onclick = function getAPIdata() {
+// ------ FOTOS LATEN ZIEN -------//
+document.getElementById("zoekplaatje").onclick = function getAPIdata() {
 
   // construct request
-  var url = "https://api.musixmatch.com/ws/1.1/";
-  var apiKey = "b878392d8486d494f51ed751768bf0b2";
-  var artiestZoek = "artist.search?q_artist="
-  var artiest = document.getElementById('invoer');
-  var zoek = document.getElementById('zoek');
-  // construct request
-  var requestArtist = url + artiestZoek + artiest + "?" + "apikey=" + apiKey;
-  fetch(requestArtist)
+  var url = "https://api.teleport.org/api/urban_areas/slug:";
 
-  //var requestSearch = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=b878392d8486d494f51ed751768bf0b2';
-  //var requestTrack = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=b878392d8486d494f51ed751768bf0b2';
+  var stadn = document.getElementById('invoer1').value;
+  var stada = document.getElementById('invoer2').value;
 
-  // get current weather
- //fetch(requestSearch)  
+  //var request = url + stad;
   
-  // parse response to JSON format
+  if(stada == "") {
+    var request = url + stadn + "/images/";
+    fetch(request) 
+
+    // parse response to JSON format
   .then(function(response) {
     return response.json();
   })
@@ -147,25 +125,40 @@ document.getElementById("zoek").onclick = function getAPIdata() {
   // do something with response
   .then(function(response) {
     // show full JSON object
-    console.log(response);
-  
-    //var weatherBox = document.getElementById('weather');
+    //console.log(response._embedded["city:search-results"][0].matching_alternate_names[1].name);
+    //console.log(response.photos[0].image.web);
+    var img = document.createElement('img');
+    img.src  = (response.photos[0].image.web);
+    var src = document.getElementById("plaatje");
+     
+    plaatje.appendChild(img);
 
-//var uitkomstNummer = document.getElementById('uitkomst');
-
-    //weatherBox.innerHTML = (response.main.temp - 273.15).toFixed(1) + ' &#730;C <br>' + response.weather[0].description; 
   });
+   
+  } else {
+     request = url + stadn + "-" + stada +"/images/";
+    fetch(request)
+    // parse response to JSON format
+  .then(function(response) {
+    return response.json();
+  })
+  
+  // do something with response
+  .then(function(response) {
+    // show full JSON object
+    //console.log(response._embedded["city:search-results"][0].matching_alternate_names[1].name);
+    //console.log(response.photos[0].image.web);
+    var img = document.createElement('img');
+    img.src  = (response.photos[0].image.web);
+    var src = document.getElementById("plaatje");
+     
+    plaatje.appendChild(img);
+
+  });
+  }
+  
+
 }
-
-getAPIdata();
-
-
- 
-*/
-
-
-
-
 
 
 
